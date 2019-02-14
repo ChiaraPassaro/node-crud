@@ -12,6 +12,44 @@
 {{> header}}
 <div class="container">
     <div>{{title}}</div>
+    <form action="/" method="post">
+        <div class="row">
+            <div class="form-group col-6">
+                <label for="name">Nome</label>
+                <input class="" type="text" name="name" id="name" value="">
+            </div>
+            <div class="form-group col-6">
+                <label for="lastname">Cognome</label>
+                <input class="" type="text" name="lastname" id="lastname" value="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <label for="date_of_birth">Data di nascita</label>
+                <input class="" type="date" name="date_of_birth" id="date_of_birth" value="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <label for="document_type">Tipo di documento</label>
+                <input class="" name="document_type" id="document_type" list="document" value="">
+                <datalist id="document">
+                    <option value="CI">CI</option>
+                    <option value="Driver License">Driver License</option>
+                </datalist>
+            </div>
+            <div class="form-group col-6">
+                <label for="document_number">Numero di documento</label>
+                <input class="" type="text" name="document_number" id="document_number" value="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-12">
+                <input type="submit" class="btn btn-primary" value="Salva">
+            </div>
+        </div>
+    </form>
+
     <table>
         <thead>
             <tr>

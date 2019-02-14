@@ -11,15 +11,6 @@ var hbs  = require('express-handlebars');
 
 var db = require('./env.js');
 
-/*
-const db = mysql.createConnection ({
-  //localhost non funziona
-  host: '127.0.0.1',
-  user: 'root',
-  password: 'Barbara_73',
-  database: 'hotel_booleana',
-});*/
-
 // connect to database
 db.db.connect((err) => {
   if (err) {
