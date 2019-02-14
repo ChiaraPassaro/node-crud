@@ -7,26 +7,28 @@ var logger = require('morgan');
 //inserisco handlebars
 var hbs  = require('express-handlebars');
 
-//Inserisco Mysql
-var mysql = require('mysql');
 
+
+var db = require('./env.js');
+
+/*
 const db = mysql.createConnection ({
   //localhost non funziona
   host: '127.0.0.1',
   user: 'root',
-  password: 'password',
+  password: 'Barbara_73',
   database: 'hotel_booleana',
-});
+});*/
 
 // connect to database
-db.connect((err) => {
+db.db.connect((err) => {
   if (err) {
     throw err;
   }
   console.log('Connected to database');
 });
 
-global.db = db;
+global.db = db.db;
 
 //richiamo index
 var indexRouter = require('./routes/index');
