@@ -3,17 +3,37 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
 //inserisco handlebars
 var hbs  = require('express-handlebars');
 
+//Inserisco Mysql
+var mysql = require('mysql');
 
+const db = mysql.createConnection ({
+  //localhost non funziona
+  host: '127.0.0.1',
+  user: 'root',
+  password: 'Barbara_73',
+  database: 'hotel_booleana',
+});
+
+// connect to database
+db.connect((err) => {
+  if (err) {
+    throw err;
+  }
+  console.log('Connected to database');
+});
+
+global.db = db;
+
+//richiamo index
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 var app = express();
 
-
-// view engine setup
+//  setup di handlebars
 app.set('view engine', 'hbs');
 
 app.engine( 'hbs', hbs( {
@@ -22,22 +42,14 @@ app.engine( 'hbs', hbs( {
   partialsDir: __dirname + '/views/partials/'
 }));
 
-
-
-/*
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-*/
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//uso la route
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

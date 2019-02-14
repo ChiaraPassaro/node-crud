@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Hotel Booleana</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="stylesheet" href="/css/main.min.css">
+</head>
+<body class="{{template}}">
+{{> header}}
+<div class="container">
+    <div>{{title}}</div>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Data di nascita</th>
+            <th>Tipo di documento</th>
+            <th>Numero di documento</th>
+            <th>Creato il</th>
+            <th>Modificato il</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each guests}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>{{lastname}}</td>
+            <td>{{date_of_birth}}</td>
+            <td>{{document_type}}</td>
+            <td>{{document_number}}</td>
+            <td>{{created_at}}</td>
+            <td>{{updated_at}}</td>
+            <td><a href="/{{id}}">Modifica</a></td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+{{> footer}}
+</body>
+</html>
