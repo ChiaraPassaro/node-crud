@@ -14,7 +14,7 @@ const db = mysql.createConnection ({
   //localhost non funziona
   host: '127.0.0.1',
   user: 'root',
-  password: 'Barbara_73',
+  password: 'password',
   database: 'hotel_booleana',
 });
 
